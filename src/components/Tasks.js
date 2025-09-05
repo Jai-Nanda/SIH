@@ -48,7 +48,7 @@ export default function Tasks() {
           <h3 className="text-lg font-semibold text-gray-900">Add New Task</h3>
         </div>
         <div className="p-6">
-          <form onSubmit={handleAddTask} className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <form onSubmit={handleAddTask} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Task Description</label>
               <input
@@ -109,7 +109,7 @@ export default function Tasks() {
       </div>
 
       {/* Task Statistics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
           <div className="flex items-center">
             <div className="p-2 bg-red-100 rounded-lg">

@@ -29,7 +29,7 @@ export default function Analytics() {
   return (
     <div className="space-y-6">
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
           <div className="flex items-center">
             <div className="p-2 bg-green-100 rounded-lg">
@@ -85,7 +85,7 @@ export default function Analytics() {
           <div className="text-center py-12">
             <div className="text-6xl mb-4">📊</div>
             <p className="text-gray-500">Revenue and profit chart would be displayed here</p>
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
               {monthlyData.map((data, index) => (
                 <div key={index} className="text-center p-3 bg-gray-50 rounded-lg">
                   <div className="text-sm font-medium text-gray-600">{data.month}</div>
@@ -167,7 +167,7 @@ export default function Analytics() {
           <h3 className="text-lg font-semibold text-gray-900">Field Efficiency Analysis</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {fieldEfficiency.map((field, index) => (
               <div key={index} className="border border-gray-200 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -212,7 +212,7 @@ export default function Analytics() {
           <h3 className="text-lg font-semibold text-gray-900">Insights & Recommendations</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
             <div className="space-y-4">
               <h4 className="font-medium text-gray-900">Top Performers</h4>
               <div className="space-y-2">
