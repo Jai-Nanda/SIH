@@ -6,6 +6,11 @@ import Crops from './Crops';
 import Weather from './Weather';
 import Tasks from './Tasks';
 import Analytics from './Analytics';
+import News from './News';
+import Disaster from './Disaster';
+import Detection from './Detection';
+
+const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
 export default function Dashboard({ onSignOut }) {
   const [activeTab, setActiveTab] = useState('overview');
@@ -20,7 +25,7 @@ export default function Dashboard({ onSignOut }) {
               <span className="text-white font-bold text-sm">🌱</span>
             </div>
             <h1 className="text-lg font-bold text-gray-900">
-              Sproutz
+              Fasalmitr 
             </h1>
           </div>
           <div className="flex items-center space-x-2">
@@ -50,7 +55,7 @@ export default function Dashboard({ onSignOut }) {
                   <span className="text-white font-bold text-sm">🌱</span>
                 </div>
                 <h1 className="text-lg font-bold text-gray-900">
-                  Sproutz
+                  Fasalmitr 
                 </h1>
               </div>
             </div>
@@ -61,7 +66,10 @@ export default function Dashboard({ onSignOut }) {
                   { id: 'crops', label: 'Crops', icon: '🌾' },
                   { id: 'weather', label: 'Weather', icon: '🌤️' },
                   { id: 'tasks', label: 'Tasks', icon: '✅' },
-                  { id: 'analytics', label: 'Analytics', icon: '📈' }
+                  { id: 'analytics', label: 'Analytics', icon: '📈' },
+                  { id: 'news', label: 'News', icon: '🗞️' },
+                  { id: 'disaster', label: 'Disaster', icon: '⚠️' },
+                  { id: 'detection', label: 'Detection', icon: '🔎' }
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -91,7 +99,7 @@ export default function Dashboard({ onSignOut }) {
               <span className="text-white font-bold text-sm">🌱</span>
             </div>
             <h1 className="text-lg font-bold text-gray-900">
-              Sproutz
+              Fasalmitr 
             </h1>
           </div>
         </div>
@@ -104,7 +112,10 @@ export default function Dashboard({ onSignOut }) {
               { id: 'crops', label: 'Crops', icon: '🌾' },
               { id: 'weather', label: 'Weather', icon: '🌤️' },
               { id: 'tasks', label: 'Tasks', icon: '✅' },
-              { id: 'analytics', label: 'Analytics', icon: '📈' }
+              { id: 'analytics', label: 'Analytics', icon: '📈' },
+               { id: 'news', label: 'News', icon: '🗞️' },
+               { id: 'disaster', label: 'Disaster', icon: '⚠️' },
+               { id: 'detection', label: 'Detection', icon: '🔎' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -147,6 +158,9 @@ export default function Dashboard({ onSignOut }) {
           {activeTab === 'weather' && <Weather />}
           {activeTab === 'tasks' && <Tasks />}
           {activeTab === 'analytics' && <Analytics />}
+          {activeTab === 'news' && <News />}
+          {activeTab === 'disaster' && <Disaster />}
+          {activeTab === 'detection' && <Detection />}
         </main>
       </div>
     </div>

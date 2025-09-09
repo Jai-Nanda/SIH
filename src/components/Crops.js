@@ -31,7 +31,7 @@ export default function Crops() {
           <h3 className="text-lg font-semibold text-gray-900">Add New Crop</h3>
         </div>
         <div className="p-6">
-          <form onSubmit={handleAddCrop} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <form onSubmit={handleAddCrop} className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Crop Name</label>
               <input
@@ -86,7 +86,7 @@ export default function Crops() {
           <h3 className="text-lg font-semibold text-gray-900">Crop Inventory</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {cropInventory.map((crop, index) => (
               <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-200">
                 <div className="flex items-center space-x-3 mb-3">

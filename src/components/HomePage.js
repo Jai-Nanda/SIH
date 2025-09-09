@@ -1,25 +1,20 @@
 'use client';
-
+import Signin from '../app/signin/page';
+import Signup from '../app/signup/page';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function HomePage({ onSignIn, onSignUp }) {
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+export default function HomePage() {
+  const router = useRouter(); 
+  const handle1SignIn = () => {
+  router.push('/signin');
+};
+const handle1SignUp = () => {
+  router.push('/signup');
+};
 
-  const handleSignIn = () => {
-    setShowSignIn(true);
-    setShowSignUp(false);
-  };
 
-  const handleSignUp = () => {
-    setShowSignUp(true);
-    setShowSignIn(false);
-  };
-
-  const handleCloseAuth = () => {
-    setShowSignIn(false);
-    setShowSignUp(false);
-  };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-100">
@@ -31,17 +26,18 @@ export default function HomePage({ onSignIn, onSignUp }) {
               <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">🌱</span>
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">Sproutz</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Fasalmitr </h1>
             </div>
             <div className="flex items-center space-x-4">
+              <h3 className="text-gray-700">Don't have an account?</h3>
               <button
-                onClick={handleSignIn}
+                onClick={handle1SignIn}
                 className="px-4 py-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors duration-200"
               >
                 Sign In
               </button>
               <button
-                onClick={handleSignUp}
+                onClick={handle1SignUp}
                 className="px-6 py-2 bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-600 transition-colors duration-200"
               >
                 Sign Up
@@ -64,14 +60,14 @@ export default function HomePage({ onSignIn, onSignUp }) {
               all in one powerful platform designed for modern farmers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
+              {/* <button
                 onClick={handleSignUp}
                 className="px-8 py-4 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Get Started Free
-              </button>
+              </button> */}
               <button
-                onClick={handleSignIn}
+                onClick={handle1SignIn}
                 className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl border-2 border-emerald-200 hover:border-emerald-300 transition-all duration-200"
               >
                 Sign In
@@ -198,7 +194,7 @@ export default function HomePage({ onSignIn, onSignUp }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              How Sproutz Works
+              How Fasalmitr  Works
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Get started in minutes and transform your farming operations with our simple 3-step process.
@@ -246,17 +242,17 @@ export default function HomePage({ onSignIn, onSignUp }) {
             Ready to Transform Your Farming?
           </h2>
           <p className="text-xl text-emerald-100 mb-8">
-            Join thousands of farmers who are already using Sproutz to optimize their operations and increase their yields.
+            Join thousands of farmers who are already using Fasalmitr  to optimize their operations and increase their yields.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+            {/* <button
               onClick={handleSignUp}
               className="px-8 py-4 bg-white text-emerald-500 font-semibold rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Start Free Trial
-            </button>
+            </button> */}
             <button
-              onClick={handleSignIn}
+              onClick={handle1SignIn}
               className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl border-2 border-emerald-300 hover:bg-emerald-700 transition-all duration-200"
             >
               Sign In
@@ -274,7 +270,7 @@ export default function HomePage({ onSignIn, onSignUp }) {
                 <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">🌱</span>
                 </div>
-                <h3 className="text-xl font-bold">Sproutz</h3>
+                <h3 className="text-xl font-bold">Fasalmitr </h3>
               </div>
               <p className="text-gray-400">
                 Smart farming solutions for modern agriculture.
@@ -309,144 +305,11 @@ export default function HomePage({ onSignIn, onSignUp }) {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Sproutz. All rights reserved.</p>
+            <p>&copy; 2024 Fasalmitr . All rights reserved.</p>
           </div>
         </div>
+
       </footer>
-
-      {/* Sign In Modal */}
-      {showSignIn && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Sign In</h2>
-              <button
-                onClick={handleCloseAuth}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                ✕
-              </button>
-            </div>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Enter your password"
-                />
-              </div>
-              <button
-                type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onSignIn();
-                  handleCloseAuth();
-                }}
-                className="w-full bg-emerald-500 text-white py-3 rounded-lg font-semibold hover:bg-emerald-600 transition-colors duration-200"
-              >
-                Sign In
-              </button>
-            </form>
-            <p className="text-center text-gray-600 mt-4">
-              Don't have an account?{' '}
-              <button
-                onClick={() => {
-                  setShowSignIn(false);
-                  setShowSignUp(true);
-                }}
-                className="text-emerald-600 hover:text-emerald-700 font-medium"
-              >
-                Sign Up
-              </button>
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Sign Up Modal */}
-      {showSignUp && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Sign Up</h2>
-              <button
-                onClick={handleCloseAuth}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                ✕
-              </button>
-            </div>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Enter your full name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  placeholder="Create a password"
-                />
-              </div>
-              <button
-                type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onSignUp();
-                  handleCloseAuth();
-                }}
-                className="w-full bg-emerald-500 text-white py-3 rounded-lg font-semibold hover:bg-emerald-600 transition-colors duration-200"
-              >
-                Create Account
-              </button>
-            </form>
-            <p className="text-center text-gray-600 mt-4">
-              Already have an account?{' '}
-              <button
-                onClick={() => {
-                  setShowSignUp(false);
-                  setShowSignIn(true);
-                }}
-                className="text-emerald-600 hover:text-emerald-700 font-medium"
-              >
-                Sign In
-              </button>
-            </p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

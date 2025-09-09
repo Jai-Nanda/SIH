@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Sproutz",
+  title: "Fasalmitr ",
   description: "Comprehensive crop advisory and  monitoring system",
 };
 
