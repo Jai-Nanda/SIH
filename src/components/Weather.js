@@ -6,12 +6,12 @@ import { getCurrentWeather, getWeatherForecast, generateWeatherAlerts } from '..
 export default function Weather() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [weatherAlerts, setWeatherAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [city, setCity] = useState('New Delhi');
   const [country, setCountry] = useState('IN');
+  const [weatherAlerts, setWeatherAlerts] = useState([]);
 
   // Fetch weather data
   const fetchWeatherData = useCallback(async () => {
@@ -26,7 +26,20 @@ export default function Weather() {
       
       setCurrentWeather(currentData);
       setForecast(forecastData);
-      setWeatherAlerts(generateWeatherAlerts(currentData, forecastData));
+
+      // Weather alert logic
+      const alerts = [];
+      if (currentData.condition && currentData.condition.toLowerCase().includes('rain')) {
+        alerts.push('Heavy rain expected. Please take precautions for your crops and property.');
+      } else if (currentData.condition && currentData.condition.toLowerCase().includes('sun')) {
+        alerts.push('It\'s too hot and sunny. Ensure proper irrigation and shade for sensitive crops.');
+      } else if (currentData.temperature >= 38) {
+        alerts.push('Extreme heat alert! Temperatures are very high.');
+      } else if (currentData.temperature <= 5) {
+        alerts.push('Cold wave alert! Temperatures are very low.');
+      }
+
+      setWeatherAlerts(alerts);
       setLastUpdated(new Date());
     } catch (err) {
       console.error('Error fetching weather data:', err);
@@ -53,11 +66,7 @@ export default function Weather() {
         { day: 'Friday', high: 27, low: 19, condition: 'Sunny', icon: '☀️', rain: '5%' }
       ]);
       
-      setWeatherAlerts([
-        { type: 'warning', message: 'Heavy rain expected on Wednesday', time: '2 days' },
-        { type: 'info', message: 'Optimal conditions for planting', time: 'Today' },
-        { type: 'success', message: 'Good weather for harvesting', time: 'This week' }
-      ]);
+      setWeatherAlerts([]);
     } finally {
       setLoading(false);
     }
@@ -118,7 +127,7 @@ export default function Weather() {
         <div className="p-6 border-b border-gray-200">
           <div className="flex justify-between items-center">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Weather Dashboard</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Weather Analytics</h3>
               {currentWeather && (
                 <p className="text-sm text-gray-500 mt-1">{currentWeather.location}</p>
               )}
@@ -174,7 +183,7 @@ export default function Weather() {
                 </div>
               </div>
             ) : currentWeather ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="">
                 <div className="text-center">
                   <div className="text-6xl mb-4">{currentWeather.icon}</div>
                   <div className="text-4xl font-bold text-gray-900 mb-2">{currentWeather.temperature}°C</div>
@@ -245,47 +254,20 @@ export default function Weather() {
       {/* Weather Alerts */}
       <div className="bg-white/90 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200">
         <div className="p-6 border-b border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900">Weather Alerts & Recommendations</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Weather Alerts</h3>
         </div>
         <div className="p-6">
-          {loading && weatherAlerts.length === 0 ? (
-            <div className="flex items-center justify-center py-8">
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔔</div>
-                <p className="text-gray-500">Loading alerts...</p>
-              </div>
-            </div>
-          ) : weatherAlerts.length > 0 ? (
-            <div className="space-y-4">
-              {weatherAlerts.map((alert, index) => (
-                <div key={index} className={`p-4 rounded-lg border-l-4 ${
-                  alert.type === 'warning' ? 'bg-yellow-50 border-yellow-400' :
-                  alert.type === 'info' ? 'bg-blue-50 border-blue-400' :
-                  'bg-green-50 border-green-400'
-                }`}>
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-2 h-2 rounded-full ${
-                      alert.type === 'warning' ? 'bg-yellow-400' :
-                      alert.type === 'info' ? 'bg-blue-400' :
-                      'bg-green-400'
-                    }`}></div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900">{alert.message}</p>
-                      <p className="text-xs text-gray-500">In {alert.time}</p>
-                    </div>
-                  </div>
-                </div>
+          {weatherAlerts.length > 0 ? (
+            <ul className="list-disc pl-5 text-red-600 space-y-2">
+              {weatherAlerts.map((alert, idx) => (
+                <li key={idx}>{alert}</li>
               ))}
-            </div>
+            </ul>
           ) : (
-            <div className="text-center py-8">
-              <div className="text-3xl mb-2">✅</div>
-              <p className="text-gray-500">No weather alerts at this time</p>
-            </div>
+            <div className="text-green-700">No weather alerts in this area.</div>
           )}
         </div>
       </div>
-
     </div>
   );
 }

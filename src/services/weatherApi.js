@@ -56,7 +56,7 @@ const getDemoData = (city, country) => ({
 });
 
 // Fetch current weather
-export const getCurrentWeather = async (city = 'New Delhi', country = 'IN') => {
+export const getCurrentWeather = async (city = 'Punjab', country = 'IN') => {
   try {
     // Check if API key exists
     if (!API_KEY || API_KEY === 'demo_key_replace_with_your_actual_api_key') {
@@ -107,7 +107,7 @@ export const getCurrentWeather = async (city = 'New Delhi', country = 'IN') => {
 };
 
 // Fetch 5-day forecast
-export const getWeatherForecast = async (city = 'New Delhi', country = 'IN') => {
+export const getWeatherForecast = async (city = 'Punjab', country = 'IN') => {
   try {
     // Check if API key exists
     if (!API_KEY || API_KEY === 'demo_key_replace_with_your_actual_api_key') {

@@ -1,17 +1,6 @@
 'use client';
-import Signin from '../app/signin/page';
-import Signup from '../app/signup/page';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 export default function HomePage() {
-  const router = useRouter(); 
-  const handle1SignIn = () => {
-  router.push('/signin');
-};
-const handle1SignUp = () => {
-  router.push('/signup');
-};
 
 
   
@@ -27,21 +16,6 @@ const handle1SignUp = () => {
                 <span className="text-white font-bold text-lg">🌱</span>
               </div>
               <h1 className="text-2xl font-bold text-gray-900">Fasalmitr </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <h3 className="text-gray-700">Don't have an account?</h3>
-              <button
-                onClick={handle1SignIn}
-                className="px-4 py-2 text-emerald-600 font-medium hover:text-emerald-700 transition-colors duration-200"
-              >
-                Sign In
-              </button>
-              <button
-                onClick={handle1SignUp}
-                className="px-6 py-2 bg-emerald-500 text-white font-medium rounded-lg hover:bg-emerald-600 transition-colors duration-200"
-              >
-                Sign Up
-              </button>
             </div>
           </div>
         </div>
@@ -59,20 +33,6 @@ const handle1SignUp = () => {
               Monitor your crops, track weather conditions, and get intelligent farming recommendations 
               all in one powerful platform designed for modern farmers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* <button
-                onClick={handleSignUp}
-                className="px-8 py-4 bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-600 transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Get Started Free
-              </button> */}
-              <button
-                onClick={handle1SignIn}
-                className="px-8 py-4 bg-white text-emerald-600 font-semibold rounded-xl border-2 border-emerald-200 hover:border-emerald-300 transition-all duration-200"
-              >
-                Sign In
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -244,20 +204,6 @@ const handle1SignUp = () => {
           <p className="text-xl text-emerald-100 mb-8">
             Join thousands of farmers who are already using Fasalmitr  to optimize their operations and increase their yields.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* <button
-              onClick={handleSignUp}
-              className="px-8 py-4 bg-white text-emerald-500 font-semibold rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-              Start Free Trial
-            </button> */}
-            <button
-              onClick={handle1SignIn}
-              className="px-8 py-4 bg-emerald-600 text-white font-semibold rounded-xl border-2 border-emerald-300 hover:bg-emerald-700 transition-all duration-200"
-            >
-              Sign In
-            </button>
-          </div>
         </div>
       </section>
 

@@ -6,13 +6,13 @@ import Crops from './Crops';
 import Weather from './Weather';
 import Tasks from './Tasks';
 import Analytics from './Analytics';
-import News from './News';
 import Disaster from './Disaster';
 import Detection from './Detection';
+import Scheme from './Scheme';
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 
-export default function Dashboard({ onSignOut }) {
+export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
@@ -27,20 +27,6 @@ export default function Dashboard({ onSignOut }) {
             <h1 className="text-lg font-bold text-gray-900">
               Fasalmitr 
             </h1>
-          </div>
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={onSignOut}
-              className="px-3 py-1 text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-            >
-              Sign Out
-            </button>
-            <button
-              onClick={() => setActiveTab(activeTab === 'menu' ? 'overview' : 'menu')}
-              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
-            >
-              <span className="text-lg">☰</span>
-            </button>
           </div>
         </div>
       </header>
@@ -67,9 +53,9 @@ export default function Dashboard({ onSignOut }) {
                   { id: 'weather', label: 'Weather', icon: '🌤️' },
                   { id: 'tasks', label: 'Tasks', icon: '✅' },
                   { id: 'analytics', label: 'Analytics', icon: '📈' },
-                  { id: 'news', label: 'News', icon: '🗞️' },
                   { id: 'disaster', label: 'Disaster', icon: '⚠️' },
-                  { id: 'detection', label: 'Detection', icon: '🔎' }
+                  { id: 'detection', label: 'Detection', icon: '🔎' },
+                  { id: 'scheme', label: 'Scheme', icon: '💳' }
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -113,9 +99,9 @@ export default function Dashboard({ onSignOut }) {
               { id: 'weather', label: 'Weather', icon: '🌤️' },
               { id: 'tasks', label: 'Tasks', icon: '✅' },
               { id: 'analytics', label: 'Analytics', icon: '📈' },
-               { id: 'news', label: 'News', icon: '🗞️' },
                { id: 'disaster', label: 'Disaster', icon: '⚠️' },
-               { id: 'detection', label: 'Detection', icon: '🔎' }
+               { id: 'detection', label: 'Detection', icon: '🔎' },
+               { id: 'scheme', label: 'Scheme', icon: '💳' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -138,17 +124,6 @@ export default function Dashboard({ onSignOut }) {
       <div className="flex-1 flex flex-col">
         {/* Desktop Top Header */}
         <header className="hidden lg:block bg-white shadow-sm border-b border-gray-200 px-6 py-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-900 capitalize">
-              {activeTab}
-            </h2>
-            <button
-              onClick={onSignOut}
-              className="px-4 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-            >
-              Sign Out
-            </button>
-          </div>
         </header>
 
         {/* Content Area */}
@@ -158,9 +133,9 @@ export default function Dashboard({ onSignOut }) {
           {activeTab === 'weather' && <Weather />}
           {activeTab === 'tasks' && <Tasks />}
           {activeTab === 'analytics' && <Analytics />}
-          {activeTab === 'news' && <News />}
           {activeTab === 'disaster' && <Disaster />}
           {activeTab === 'detection' && <Detection />}
+          {activeTab === 'scheme' && <Scheme />}
         </main>
       </div>
     </div>
