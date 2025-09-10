@@ -184,7 +184,7 @@ export default function ImageRecognitionPage() {
             ) : (
               <div className="space-y-4">
                 <div className="relative">
-                  <img
+                  <Image
                     src={imagePreview || "/placeholder.svg"}
                     alt="Preview"
                     className="w-full h-64 object-cover rounded-lg border border-gray-200"

@@ -193,7 +193,7 @@ export default function FinanceAdvice({ expenses, totalExpenses, bankBalance }) 
           The financial advice provided here is for informational purposes only and is based on general farming expense
           patterns. This tool does not replace professional financial consultation. For personalized financial planning,
           agricultural loans, crop insurance, tax advice, or investment decisions, please consult with a qualified
-          financial advisor, agricultural finance specialist, or your local bank's agricultural department who can
+          financial advisor, agricultural finance specialist, or your local banks agricultural department who can
           assess your specific farming situation and provide tailored recommendations.
         </p>
       </div>

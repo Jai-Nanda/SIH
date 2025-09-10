@@ -137,7 +137,7 @@ export default function Overview() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Farm Analytics</h3>
               <p className="text-gray-600 mb-6">
-                Get insights into your farm's performance with detailed analytics and reports.
+                Get insights into your farms performance with detailed analytics and reports.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li>• Yield predictions</li>
