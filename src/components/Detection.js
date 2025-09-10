@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from 'next/image';
 
 // Demo disease detection data
 const DEMO_DISEASES = [
